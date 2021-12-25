@@ -1,0 +1,4 @@
+insert into article (id, feature, title, url, imageUrl, newsSite, summary, publishedAt, updatedAt, featured, launches, events) values
+    (13414, "NASA Selects Four University Teams for Aviation Projects", "http://www.nasa.gov/press-release/nasa-selects-four-university-teams-for-aviation-projects", "https://www.nasa.gov/sites/default/files/thumbnails/image/university-concept.jpg?itok=HPhDA6V-",
+     "NASA", "NASA’s research focus on sustainable aviation will get some big help from teams of university faculty and students recently selected to participate in the agency’s University Leadership Initiative (ULI).",
+     "2021-12-23T19:06:00.000Z", "2021-12-23T19:06:55.614Z", false, null, null);
