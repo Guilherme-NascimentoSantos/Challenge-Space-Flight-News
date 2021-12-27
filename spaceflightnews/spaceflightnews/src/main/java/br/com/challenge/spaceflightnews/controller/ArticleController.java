@@ -2,7 +2,9 @@ package br.com.challenge.spaceflightnews.controller;
 
 
 import br.com.challenge.spaceflightnews.domain.Article;
+import br.com.challenge.spaceflightnews.domain.Launche;
 import br.com.challenge.spaceflightnews.repository.ArticleRepository;
+import br.com.challenge.spaceflightnews.repository.LauncheRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -18,13 +20,15 @@ public class ArticleController {
     @Autowired
     ArticleRepository articleRepository;
 
+
     @GetMapping
     public ResponseEntity getWelcomeMessage() {
         return ResponseEntity.status(200).body("Back-end Challenge 2021 🏅 - Space Flight News");
     }
 
     @GetMapping("/articles")
-    public ResponseEntity getAllArticles(Pageable pageable) {
+    public ResponseEntity getAllArticles() {
+        Pageable pageable = Pageable.unpaged();
         return ResponseEntity.of(Optional.of(articleRepository.findAll(pageable.first())));
     }
 

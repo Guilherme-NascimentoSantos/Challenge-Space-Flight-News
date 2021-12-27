@@ -18,7 +18,12 @@ public class LauncheController {
     @PostMapping("/launche")
     public ResponseEntity postLaunche(@RequestBody Launche launche) {
 
-        launcheRepository.save(launche);
-        return ResponseEntity.status(201).build();
+        if (!launcheRepository.existsById(launche.getId())) {
+            launcheRepository.save(launche);
+            return ResponseEntity.status(201).build();
+        }
+
+        return ResponseEntity.status(400).build();
+
     }
 }

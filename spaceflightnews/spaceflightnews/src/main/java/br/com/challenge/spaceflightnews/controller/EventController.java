@@ -18,7 +18,12 @@ public class EventController {
     @PostMapping("/event")
     public ResponseEntity postEvent(@RequestBody Event event) {
 
-        eventRepository.save(event);
-        return ResponseEntity.status(201).build();
+        if (!eventRepository.existsById(event.getId())) {
+            eventRepository.save(event);
+            return ResponseEntity.status(201).build();
+        }
+
+        return ResponseEntity.status(400).build();
+
     }
 }

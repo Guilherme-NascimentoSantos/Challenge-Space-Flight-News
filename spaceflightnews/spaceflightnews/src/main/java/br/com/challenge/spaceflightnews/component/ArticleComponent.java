@@ -35,14 +35,17 @@ public class ArticleComponent {
     @Autowired
     EventController eventController;
 
-    @Scheduled(cron = "* * 19 * * *", zone = "America/Sao_Paulo")
+    @Scheduled(cron = "* * 09 * * *", zone = "America/Sao_Paulo")
     public void showNewArticles() throws JSONException, IOException {
         RestTemplate restTemplate = new RestTemplate();
 
-        ArrayList<Article> articles = restTemplate.getForObject("https://api.spaceflightnewsapi.net/v3/articles", ArrayList.class);
+        try{
+            ArrayList<Article> articles = restTemplate.getForObject("https://api.spaceflightewsapi.net/v3/articles", ArrayList.class);
+            transformJsonForObject(articles);
+        } catch (Exception e) {
+            new Log().createLog(e.toString());
+        }
 
-        Log log = new Log();
-        log.createLog("teste");
     }
 
 

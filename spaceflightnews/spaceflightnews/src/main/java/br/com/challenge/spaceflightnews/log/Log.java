@@ -21,7 +21,7 @@ public class Log {
         String nameFile = String.format("log %s.txt", dateFormated);
         BufferedWriter log = new BufferedWriter(new FileWriter(nameFile, true));
 
-        log.append(String.format("Error in Application: %s", message));
+        log.append(String.format("error in synchronizing articles: \n\n%s", message));
         log.close();
 
 

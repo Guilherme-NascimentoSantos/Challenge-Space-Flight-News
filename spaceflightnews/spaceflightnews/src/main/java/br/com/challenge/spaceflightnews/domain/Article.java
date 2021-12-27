@@ -2,9 +2,12 @@ package br.com.challenge.spaceflightnews.domain;
 
 
 import org.hibernate.validator.constraints.Length;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Article {
@@ -23,14 +26,12 @@ public class Article {
     private String publishedAt;
     private String updatedAt;
     private Boolean featured;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_launche")
-    private Launche launches;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_event")
-    private Event events;
+    @OneToOne
+    private Launche launche;
+    @OneToOne
+    private Event event;
 
-    public Article(Integer id, String title, String url, String imageUrl, String newsSite, String summary, String publishedAt, String updatedAt, Boolean featured, Launche launches, Event events) {
+    public Article(Integer id, String title, String url, String imageUrl, String newsSite, String summary, String publishedAt, String updatedAt, Boolean featured, Launche launche, Event event) {
         this.id = id;
         this.title = title;
         this.url = url;
@@ -40,8 +41,8 @@ public class Article {
         this.publishedAt = publishedAt;
         this.updatedAt = updatedAt;
         this.featured = featured;
-        this.launches = launches;
-        this.events = events;
+        this.launche = launche;
+        this.event = event;
     }
 
     public Article() {
@@ -121,22 +122,21 @@ public class Article {
         this.updatedAt = updatedAt;
     }
 
-    public Launche getLaunches() {
-        return launches;
+    public Launche getLaunche() {
+        return launche;
     }
 
-    public void setLaunches(Launche launches) {
-        this.launches = launches;
+    public void setLaunche(Launche launche) {
+        this.launche = launche;
     }
 
-    public Event getEvents() {
-        return events;
+    public Event getEvent() {
+        return event;
     }
 
-    public void setEvents(Event events) {
-        this.events = events;
+    public void setEvent(Event event) {
+        this.event = event;
     }
-
 
     // toString
 
@@ -152,8 +152,8 @@ public class Article {
                 ", publishedAt='" + publishedAt + '\'' +
                 ", updatedAt='" + updatedAt + '\'' +
                 ", featured=" + featured +
-                ", launches=" + launches +
-                ", events=" + events +
+                ", launches=" + launche +
+                ", events=" + event +
                 '}';
     }
 }
