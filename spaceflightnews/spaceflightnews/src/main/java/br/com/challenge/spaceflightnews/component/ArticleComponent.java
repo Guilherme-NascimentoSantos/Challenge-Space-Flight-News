@@ -38,7 +38,7 @@ public class ArticleComponent {
         RestTemplate restTemplate = new RestTemplate();
 
         try{
-            ArrayList<Article> articles = restTemplate.getForObject("https://api.spaceflightnsapi.net/v3/articles", ArrayList.class);
+            ArrayList<Article> articles = restTemplate.getForObject("https://api.spaceflightnewsapi.net/v3/articles", ArrayList.class);
             transformJsonForObject(articles);
         } catch (Exception e) {
             new Log().createLog(e.toString());
