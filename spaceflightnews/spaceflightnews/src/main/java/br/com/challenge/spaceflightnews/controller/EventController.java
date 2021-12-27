@@ -1,7 +1,6 @@
 package br.com.challenge.spaceflightnews.controller;
 
 import br.com.challenge.spaceflightnews.domain.Event;
-import br.com.challenge.spaceflightnews.domain.Launche;
 import br.com.challenge.spaceflightnews.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,13 +1,7 @@
 package br.com.challenge.spaceflightnews.domain;
 
 
-import org.hibernate.validator.constraints.Length;
-import org.springframework.lang.Nullable;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Article {

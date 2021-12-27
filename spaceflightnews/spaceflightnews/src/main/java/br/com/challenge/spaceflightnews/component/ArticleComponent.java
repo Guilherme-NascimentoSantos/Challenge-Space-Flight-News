@@ -7,7 +7,6 @@ import br.com.challenge.spaceflightnews.domain.Article;
 import br.com.challenge.spaceflightnews.domain.Event;
 import br.com.challenge.spaceflightnews.domain.Launche;
 import br.com.challenge.spaceflightnews.log.Log;
-import br.com.challenge.spaceflightnews.repository.LauncheRepository;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
@@ -35,12 +33,12 @@ public class ArticleComponent {
     @Autowired
     EventController eventController;
 
-    @Scheduled(cron = "* * 09 * * *", zone = "America/Sao_Paulo")
-    public void showNewArticles() throws JSONException, IOException {
+    @Scheduled(cron = "0 0 09 * * *", zone = "America/Sao_Paulo")
+    public void showNewArticles() throws IOException {
         RestTemplate restTemplate = new RestTemplate();
 
         try{
-            ArrayList<Article> articles = restTemplate.getForObject("https://api.spaceflightewsapi.net/v3/articles", ArrayList.class);
+            ArrayList<Article> articles = restTemplate.getForObject("https://api.spaceflightnsapi.net/v3/articles", ArrayList.class);
             transformJsonForObject(articles);
         } catch (Exception e) {
             new Log().createLog(e.toString());

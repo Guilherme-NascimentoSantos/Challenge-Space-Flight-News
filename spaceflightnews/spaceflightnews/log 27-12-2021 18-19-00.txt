@@ -1,0 +1,3 @@
+error in synchronizing articles: 
+
+org.springframework.web.client.ResourceAccessException: I/O error on GET request for "https://api.spaceflightnsapi.net/v3/articles": api.spaceflightnsapi.net; nested exception is java.net.UnknownHostException: api.spaceflightnsapi.net

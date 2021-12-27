@@ -2,16 +2,12 @@ package br.com.challenge.spaceflightnews.controller;
 
 
 import br.com.challenge.spaceflightnews.domain.Article;
-import br.com.challenge.spaceflightnews.domain.Launche;
 import br.com.challenge.spaceflightnews.repository.ArticleRepository;
-import br.com.challenge.spaceflightnews.repository.LauncheRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.Optional;
 
 @RestController
